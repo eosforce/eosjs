@@ -1,0 +1,112 @@
+{
+  "account": {
+    "base": "",
+    "fields": {
+      "balance": "asset"
+    }
+  },
+  "account_name": "name",
+  "proposal_data": {
+    "base": "",
+    "fields": {
+      "code_id": "string"
+    }
+  },
+  "transfer": {
+    "base": "",
+    "action": {
+      "name": "transfer",
+      "account": "eosio"
+    },
+    "fields": {
+      "from": "account_name",
+      "to": "account_name",
+      "quantity": "asset",
+      "memo": "string"
+    }
+  },
+  "updatebp": {
+     "base": "",
+     "action": {
+        "name": "updatebp",
+        "account": "eosio"
+      },
+      "fields": {
+        "bpname": "account_name",
+        "producer_key": "public_key",
+        "commission_rate": "uint32",
+        "expiration": "time"
+      }
+  },
+  "vote": {
+     "base": "",
+     "action": {
+        "name": "vote",
+        "account": "eosio"
+     },
+     "fields": {
+        "voter": "account_name",
+        "bpname": "account_name",
+        "change":  "asset"
+     }
+  },
+  "unfreeze": {
+     "base": "",
+     "action": {
+        "name": "unfreeze",
+        "account": "eosio"
+     },
+     "fields": {
+        "voter": "account_name",
+        "bpname":"account_name"
+     }
+  },
+  "claim": {
+     "base": "",
+     "action": {
+        "name": "claim",
+        "account": "eosio"
+     },
+     "fields": {
+        "voter": "account_name",
+        "bpname": "account_name"
+     }
+  },
+ "createp": {
+ "base": "",
+ "action": {
+	"name": "createp",
+	"account": "eosio"
+ },
+ "fields": {
+	"creator": "account_name",
+	"proposal": "name",
+	"data": "proposal_data",
+	"expiration": "time"
+ }
+},
+  "proproposal": {
+    "base": "",
+     "action": {
+        "name": "proproposal",
+        "account": "eosio"
+     },
+     "fields": {
+        "proposer": "account_name",
+        "creator": "account_name",
+        "proposal": "name"
+     }
+  },
+  "conproposal": {
+    "base": "",
+     "action": {
+        "name": "conproposal",
+        "account": "eosio"
+     },
+     "fields": {
+        "proposer": "account_name",
+        "creator": "account_name",
+        "proposal": "name"
+     }
+  }
+}

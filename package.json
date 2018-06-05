@@ -46,7 +46,7 @@
     "babel-polyfill": "^6.26.0",
     "binaryen": "^37.0.0",
     "create-hash": "^1.1.3",
-    "eosjs-api": "git+ssh://git@github.com:eosforce/eosjs-api.git",
+    "eosjs-api": "git+https://github.com/eosforce/eosjs-api.git",
     "eosjs-ecc": "^4.0.0",
     "fcbuffer": "^2.2.0"
   },

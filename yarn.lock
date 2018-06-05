@@ -1431,9 +1431,9 @@ encoding@^0.1.11:
   dependencies:
     iconv-lite "~0.4.13"
 
-"eosjs-api@git+ssh://git@github.com:eosforce/eosjs-api.git":
+"eosjs-api@git+https://github.com/eosforce/eosjs-api.git":
   version "6.0.1"
-  resolved "git+ssh://git@github.com:eosforce/eosjs-api.git#a3240edab5a9f5babdd7fd1c4b506246476ef8cd"
+  resolved "git+https://github.com/eosforce/eosjs-api.git#a3240edab5a9f5babdd7fd1c4b506246476ef8cd"
   dependencies:
     camel-case "^3.0.0"
     is-browser "^2.0.1"

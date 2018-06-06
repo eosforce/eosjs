@@ -47,7 +47,7 @@
      "fields": {
         "voter": "account_name",
         "bpname": "account_name",
-        "change":  "asset"
+        "stake":  "asset"
      }
   },
   "unfreeze": {

@@ -155,20 +155,21 @@ function UDecimalString(value) {
   if(value[0] === '.') {
     value = `0${value}`
   }
-  
+
   const part = value.split('.')
   assert(part.length <= 2, `invalid decimal ${value}`)
-  assert(/^-?\d+(,?\d)*\d*$/.test(part[0]), `invalid decimal ${value}`)
+  assert(/^\d+(,?\d)*\d*$/.test(part[0]), `invalid decimal ${value}`)
 
   if(part.length === 2) {
-    assert(/^-?\d*$/.test(part[1]), `invalid decimal ${value}`)
+    assert(/^\d*$/.test(part[1]), `invalid decimal ${value}`)
     part[1] = part[1].replace(/0+$/, '')// remove suffixing zeros
     if(part[1] === '') {
       part.pop()
     }
   }
+
   part[0] = part[0].replace(/^0*/, '')// remove leading zeros
-  if(part[0] === '' || part[0] === '-'| part[0] === '-0') {
+  if(part[0] === '') {
     part[0] = '0'
   }
   return part.join('.')
@@ -220,7 +221,7 @@ function UDecimalImply(value, precision) {
 function UDecimalUnimply(value, precision) {
   assert(value != null, 'value is required')
   value = value === 'object' && value.toString ? value.toString() : String(value)
-  assert(/^-?\d+$/.test(value), `invalid whole number ${value}`)
+  assert(/^\d+$/.test(value), `invalid whole number ${value}`)
 
   // Ensure minimum length
   const pad = precision - value.length

@@ -67,12 +67,13 @@ function createEos(config) {
   config.abiCache = AbiCache(network, config)
 
   if(!config.chainId) {
-    config.chainId = 'cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f'
+    config.chainId = 'd9d3aec0169bb7b5c8d6573acea62a519491e37bc1ec0fc66819f70c101d51a3'
   }
 
-  if(network) {
-    checkChainId(network, config.chainId, config.logger)
-  }
+  // 不检查 chainid
+  // if(network) {
+  //   checkChainId(network, config.chainId, config.logger)
+  // }
 
   if(config.mockTransactions != null) {
     if(typeof config.mockTransactions === 'string') {

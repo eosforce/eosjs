@@ -59,7 +59,8 @@
     "fields": {
       "context_free_actions": "action[]",
       "actions": "action[]",
-      "transaction_extensions": "extensions_type[]"
+      "transaction_extensions": "extensions_type[]",
+      "fee": "asset"
     }
   },
   "signed_transaction": {

@@ -423,6 +423,19 @@ function WriteApi(Network, network, config, Transaction) {
 
       rawTx.actions = arg.actions
 
+      // @TODO 手续费临时解决方案
+      const feeObj = await network.getRequiredFee({
+        transaction: Fcbuffer.fromBuffer(
+          Transaction,
+          Fcbuffer.toBuffer(
+            Transaction,
+            Transaction.fromObject(Object.assign({fee: '0.0100 EOS'}, rawTx))
+          )
+        )
+      })
+      assert.equal(typeof feeObj.required_fee, 'string', 'expecting required_fee string')
+      rawTx.fee = feeObj.required_fee
+
       // Resolve shorthand
       const txObject = Transaction.fromObject(rawTx)
 

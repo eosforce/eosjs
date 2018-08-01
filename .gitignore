@@ -11,3 +11,5 @@ bin/eosio.system.abi
 bin/eosio.token.abi
 docs/index.md
 dev
+.DS_Store
+package-lock.json

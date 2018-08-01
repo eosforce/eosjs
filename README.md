@@ -531,7 +531,7 @@ var {format, api, ecc, json, Fcbuffer} = Eos.modules
 # Browser
 
 ```bash
-git clone https://github.com/EOSIO/eosjs.git
+git clone https://github.com/eosforce/eosjs
 cd eosjs
 npm install
 npm run build_browser

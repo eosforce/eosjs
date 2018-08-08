@@ -231,7 +231,7 @@ function WriteApi(Network, network, config, Transaction) {
           // Default authorization (since user did not provide one)
           tr.actions[0].authorization.push({
             actor: params[f1],
-            permission: 'active'
+            permission: 'owner'
           })
         }
       }

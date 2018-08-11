@@ -24,13 +24,13 @@ function AbiCache(network, config) {
     return network.getCode(account).then(({abi}) => {
       assert(abi, `Missing ABI for account: ${account}`);
       abi.structs.forEach((item, index) => {
-        if(schema2[item.name]){
-          item.action = schema2[item.name].action;
+        if(schema_native[item.name]){
+          item.action = schema_native[item.name].action;
           item.fields = [];
-          for(let key in schema2[item.name]['fields']){
+          for(let key in schema_native[item.name]['fields']){
             item.fields.push({
               name: key,
-              type: schema2[item.name]['fields'][key]
+              type: schema_native[item.name]['fields'][key]
             })
           }
         }

@@ -1,5 +1,6 @@
 const assert = require('assert')
 const Structs = require('./structs')
+const schema_native = require('./schema');
 
 module.exports = AbiCache
 
@@ -21,7 +22,19 @@ function AbiCache(network, config) {
 
     assert(network, 'Network is required, provide config.httpEndpoint')
     return network.getCode(account).then(({abi}) => {
-      assert(abi, `Missing ABI for account: ${account}`)
+      assert(abi, `Missing ABI for account: ${account}`);
+      abi.structs.forEach((item, index) => {
+        if(schema2[item.name]){
+          item.action = schema2[item.name].action;
+          item.fields = [];
+          for(let key in schema2[item.name]['fields']){
+            item.fields.push({
+              name: key,
+              type: schema2[item.name]['fields'][key]
+            })
+          }
+        }
+      });
       const schema = abiToFcSchema(abi)
       const structs = Structs(config, schema) // structs = {structs, types}
       return cache[account] = Object.assign({abi, schema}, structs)

@@ -169,22 +169,17 @@ function WriteApi(Network, network, config, Transaction) {
         console.log(usage(type, definition, Network, account, config))
         return
       }
-      let n_arg = [];
-      for(let i of args){
-        n_arg.push(i);
-      }   
-      let permission = 'active';   
-      // if(type == 'transfer' || type == 'vote' || type == 'claim' || type == 'unfeeze'){
+
+      let permission = 'active'; 
       let definition_arr = [];
-      for(let d_item in definition){
-        definition_arr.push(d_item);
+      for(let _key in definition){
+        definition_arr.push(_key);
       }
-      if(definition_arr.length < n_arg.length){
-        permission = n_arg.splice(definition_arr.length, n_arg.length - definition_arr.length);
+      if(args.length != definition_arr.length){
+        permission = args.splice(definition_arr.length, args.length - definition_arr.length);
         permission = permission.length ? permission[0] : 'active';
       }
-      // }
-      args = n_arg;
+
       // Special case like multi-action transactions where this lib needs
       // to be sure the broadcast is off.
       const optionOverrides = {}

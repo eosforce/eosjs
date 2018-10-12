@@ -1,39 +1,13 @@
-[![Build Status](https://travis-ci.org/EOSIO/eosjs.svg?branch=master)](https://travis-ci.org/EOSIO/eosjs)
-[![NPM](https://img.shields.io/npm/v/eosjs.svg)](https://www.npmjs.org/package/eosjs)
-
-| [EOSIO/eosjs](/EOSIO/eosjs) | [Npm](https://www.npmjs.com/package/eosjs) | [EOSIO/eos](https://github.com/EOSIO/eos) | [Docker Hub](https://hub.docker.com/r/eosio/eos/) |
-| --- | --- | --- | --- |
-| tag: 15.x.x | `npm install eosjs` (version 15) | tag: v1.0.3 | eosio/eos:v1.x.x |
-
-* eosjs@15
-  * All `asset` and `extended_asset` amounts require exact decimal places (Change `1 SYS` to `1.0000 SYS`)
-
-| [EOSIO/eosjs](/EOSIO/eosjs) | [Npm](https://www.npmjs.com/package/eosjs) | [EOSIO/eos](https://github.com/EOSIO/eos) | [Docker Hub](https://hub.docker.com/r/eosio/eos/) |
-| --- | --- | --- | --- |
-| tag: 14.x.x | `npm install eosjs` (version 14) | tag: v1.0.3 | eosio/eos:v1.0.3 |
-
-* eosjs@14.1
-  * Use `config.verbose` instead of `config.debug`
-
-| [EOSIO/eosjs](/EOSIO/eosjs) | [Npm](https://www.npmjs.com/package/eosjs) | [EOSIO/eos](https://github.com/EOSIO/eos) | [Docker Hub](https://hub.docker.com/r/eosio/eos/) |
-| --- | --- | --- | --- |
-| tag: 13.x.x | `npm install eosjs` (version 13) | tag: dawn-v4.2.0 | eosio/eos:20180526 |
-| tag: 12.x.x | `npm install eosjs` (version 12) | tag: dawn-v4.1.0 | eosio/eos:20180519 |
-| tag: 11.x.x | `npm install eosjs@dawn4` (version 11) | tag: dawn-v4.0.0 | eosio/eos:dawn-v4.0.0 |
-| tag: 9.x.x | `npm install eosjs@dawn3` (version 9) | tag: DAWN-2018-04-23-ALPHA | eosio/eos:DAWN-2018-04-23-ALPHA | [local docker](https://github.com/EOSIO/eosjs/tree/DAWN-2018-04-23-ALPHA/docker) |
-| tag: 8.x.x | `npm install eosjs@8` (version 8) | tag: dawn-v3.0.0 | eosio/eos:dawn3x |
-| branch: dawn2 | `npm install eosjs` | branch: dawn-2.x | eosio/eos:dawn2x |
-
 # Eosjs
 
 General purpose library for EOSIO blockchains.
 
 ### Usage
 
-Ways to instantiate eosjs.
+Ways to instantiate eosforce-js.
 
 ```js
-Eos = require('eosjs')
+Eos = require('eosforce-js')
 
 // Private key or keys (array) provided statically or by way of a function.
 // For multiple keys, the get_required_keys API is used (more on that below).

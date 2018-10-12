@@ -3,11 +3,10 @@ const Structs = require('./structs')
 const schema_native = require('./schema');
 
 module.exports = AbiCache
-
+const cache = {}
 function AbiCache(network, config) {
   // Help (or "usage") needs {defaults: true}
   config = Object.assign({}, {defaults: true}, config)
-  const cache = {}
 
   /**
     @arg {boolean} force false when ABI is immutable.  When force is true, API
@@ -16,12 +15,15 @@ function AbiCache(network, config) {
   function abiAsync(account, force = true) {
     assert(account, 'required account')
 
+    if(cache[account]){
+      return Promise.resolve(cache[account])
+    }
     if(force == false && cache[account] != null) {
       return Promise.resolve(cache[account])
     }
 
     assert(network, 'Network is required, provide config.httpEndpoint')
-    return network.getCode(account).then(({abi}) => {
+    return network.getAbi(account).then(({abi}) => {
       assert(abi, `Missing ABI for account: ${account}`);
       abi.structs.forEach((item, index) => {
         if(schema_native[item.name]){

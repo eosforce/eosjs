@@ -13,3 +13,4 @@ docs/index.md
 dev
 .DS_Store
 package-lock.json
+src/test.js

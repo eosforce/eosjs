@@ -1,36 +1,3 @@
 {
-  "vote": {
-    "base": "",
-    "action": {
-      "name": "vote",
-      "account": "eosio"
-    },
-    "fields": {
-      "voter": "account_name",
-      "bpname": "account_name",
-      "change": "asset"
-    }
-  },
-  "unfreeze": {
-    "base": "",
-    "action": {
-      "name": "unfreeze",
-      "account": "eosio"
-    },
-    "fields": {
-      "voter": "account_name",
-      "bpname": "account_name"
-    }
-  },
-  "claim": {
-    "base": "",
-    "action": {
-      "name": "claim",
-      "account": "eosio"
-    },
-    "fields": {
-      "voter": "account_name",
-      "bpname": "account_name"
-    }
-  }
+  
 }

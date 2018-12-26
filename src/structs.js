@@ -15,9 +15,6 @@ const {
 module.exports = (config = {}, extendedSchema) => {
   const structLookup = (lookupName, account) => {
     const cachedCode = new Set(['eosio', 'eosio.token', 'eosio.null'])
-    if(cachedCode.has(account)) {
-      return structs[lookupName]
-    }
     const abi = config.abiCache.abi(account)
     const struct = abi.structs[lookupName]
     if(struct != null) {

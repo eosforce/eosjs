@@ -25,18 +25,28 @@ function AbiCache(network, config) {
     assert(network, 'Network is required, provide config.httpEndpoint')
     return network.getAbi(account).then(({abi}) => {
       assert(abi, `Missing ABI for account: ${account}`);
-      abi.structs.forEach((item, index) => {
-        if(schema_native[item.name]){
-          item.action = schema_native[item.name].action;
-          item.fields = [];
-          for(let key in schema_native[item.name]['fields']){
-            item.fields.push({
-              name: key,
-              type: schema_native[item.name]['fields'][key]
-            })
+
+      for(let t_item of abi.actions){
+        if(t_item.name != t_item.type){
+          let struct = abi.structs.find(f_item => f_item.name == t_item.type);
+          t_item.type = t_item.name;
+          let new_struct = JSON.parse(JSON.stringify(struct));
+          new_struct.name = t_item.name;
+          abi.structs.push(new_struct);
+        }
+      }
+      abi.structs.forEach(a_item => {
+        let action = abi.actions.find(f_item => f_item.name == a_item.name);
+        if(action){
+
+          a_item.action = {
+            account,
+            name: action.name
           }
+
         }
       });
+
       const schema = abiToFcSchema(abi)
       const structs = Structs(config, schema) // structs = {structs, types}
       return cache[account] = Object.assign({abi, schema}, structs)

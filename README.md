@@ -4,10 +4,10 @@ General purpose library for EOSIO blockchains.
 
 ### Usage
 
-Ways to instantiate eosforce-js.
+Ways to instantiate eosforce.
 
 ```js
-Eos = require('eosforce-js')
+Eos = require('eosforce')
 
 // Private key or keys (array) provided statically or by way of a function.
 // For multiple keys, the get_required_keys API is used (more on that below).

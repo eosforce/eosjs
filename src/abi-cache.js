@@ -48,7 +48,7 @@ function AbiCache(network, config) {
       });
 
       const schema = abiToFcSchema(abi)
-      const structs = Structs(config, schema) // structs = {structs, types}
+      const structs = Structs(config, schema);
       return cache[account] = Object.assign({abi, schema}, structs)
     })
   }

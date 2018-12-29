@@ -175,7 +175,7 @@ function WriteApi(Network, network, config, Transaction) {
       for(let _key in definition){
         definition_arr.push(_key);
       }
-      if(args.length != definition_arr.length){
+      if(args.length != definition_arr.length && typeof args[args.length -1] == 'string'){
         permission = args.splice(definition_arr.length, args.length - definition_arr.length);
         permission = permission.length ? permission[0] : 'active';
       }

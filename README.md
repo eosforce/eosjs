@@ -2,6 +2,16 @@
 
 General purpose library for EOSIO blockchains.
 
+### Install
+```bash
+yarn add eosforce
+
+```
+if you are using yarn
+```
+yarn add eosforce
+```
+
 ### Usage
 
 Ways to instantiate eosforce.

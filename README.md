@@ -3,8 +3,9 @@
 General purpose library for EOSIO blockchains.
 
 ### Install
+if you are using npm
 ```bash
-yarn add eosforce
+npm install eosforce
 
 ```
 if you are using yarn

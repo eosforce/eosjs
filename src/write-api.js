@@ -170,16 +170,6 @@ function WriteApi(Network, network, config, Transaction) {
         return
       }
 
-      let permission = 'active'; 
-      let definition_arr = [];
-      for(let _key in definition){
-        definition_arr.push(_key);
-      }
-      if(args.length != definition_arr.length && typeof args[args.length -1] == 'string'){
-        permission = args.splice(definition_arr.length, args.length - definition_arr.length);
-        permission = permission.length ? permission[0] : 'active';
-      }
-
       // Special case like multi-action transactions where this lib needs
       // to be sure the broadcast is off.
       const optionOverrides = {}
@@ -232,17 +222,22 @@ function WriteApi(Network, network, config, Transaction) {
           data: params
         }]
       }
-
       if(addDefaultAuths) {
-        const fieldKeys = Object.keys(definition)
-        const f1 = fieldKeys[0]
+        const fieldKeys = Object.keys(definition);
+        const f1 = fieldKeys[0];
 
-        if(definition[f1] === 'account_name') {
-          // Default authorization (since user did not provide one)
+        if(options.actor){
           tr.actions[0].authorization.push({
-            actor: params[f1],
-            permission: permission || 'active'
-          })
+            actor: options.actor,
+            permission: options.permission || 'active'
+          });
+        }else{
+          if(definition[f1] === 'account_name') {
+            tr.actions[0].authorization.push({
+              actor: params[f1],
+              permission: 'active'
+            })
+          }
         }
       }
 

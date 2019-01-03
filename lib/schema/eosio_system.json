@@ -198,6 +198,21 @@
       "active": "authority"
     }
   },
+  "setfee": {
+    "base": "",
+    "action": {
+      "name": "setfee",
+      "account": "eosio"
+    },
+    "fields": {
+      "account": "account_name",
+      "action": "action_name",
+      "fee": "asset",
+      "cpu_limit": "uint32",
+      "net_limit": "uint32",
+      "ram_limit": "uint32"
+    }
+  },
   "onerror": {
     "base": "",
     "action": {

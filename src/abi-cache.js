@@ -38,12 +38,10 @@ function AbiCache(network, config) {
       abi.structs.forEach(a_item => {
         let action = abi.actions.find(f_item => f_item.name == a_item.name);
         if(action){
-
           a_item.action = {
             account,
             name: action.name
           }
-
         }
       });
 

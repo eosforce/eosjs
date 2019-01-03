@@ -15,3 +15,5 @@ dev
 package-lock.json
 src/test.js
 lib/test.js
+yarn.lock
+yarn-error.log

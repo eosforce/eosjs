@@ -1,3 +1,4 @@
+require('babel-regenerator-runtime')
 const ecc = require('eosjs-ecc')
 const Fcbuffer = require('fcbuffer')
 const EosApi = require('eosjs-api')
